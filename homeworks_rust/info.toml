@@ -357,14 +357,14 @@ Have a look in The Book, to find out more about method implementations: https://
 
 [[exercises]]
 name = "enums1"
-path = "exercises/enums/enums1.rs"
+path = "homeworks/homework2/enums/enums1.rs"
 mode = "compile"
 hint = """
 Hint: The declaration of the enumeration type has not been defined yet."""
 
 [[exercises]]
 name = "enums2"
-path = "exercises/enums/enums2.rs"
+path = "homeworks/homework2/enums/enums2.rs"
 mode = "compile"
 hint = """
 Hint: you can create enumerations that have different variants with different types
@@ -372,7 +372,7 @@ such as no data, anonymous structs, a single string, tuples, ...etc"""
 
 [[exercises]]
 name = "enums3"
-path = "exercises/enums/enums3.rs"
+path = "homeworks/homework2/enums/enums3.rs"
 mode = "test"
 hint = "No hints this time ;)"
 
@@ -380,7 +380,7 @@ hint = "No hints this time ;)"
 
 [[exercises]]
 name = "modules1"
-path = "exercises/modules/modules1.rs"
+path = "homeworks/homework2/modules/modules1.rs"
 mode = "compile"
 hint = """
 Everything is private in Rust by default-- but there's a keyword we can use
@@ -389,7 +389,7 @@ needs to be public."""
 
 [[exercises]]
 name = "modules2"
-path = "exercises/modules/modules2.rs"
+path = "homeworks/homework2/modules/modules2.rs"
 mode = "compile"
 hint = """
 The delicious_snacks module is trying to present an external interface that is 
@@ -399,7 +399,7 @@ find the one keyword missing for both constants."""
 
 [[exercises]]
 name = "modules3"
-path = "exercises/modules/modules3.rs"
+path = "homeworks/homework2/modules/modules3.rs"
 mode = "compile"
 hint = """
 UNIX_EPOCH and SystemTime are declared in the std::time module. Add a use statement
@@ -410,7 +410,7 @@ operator to bring these two in using only one line."""
 
 [[exercises]]
 name = "vec1"
-path = "exercises/collections/vec1.rs"
+path = "homeworks/homework2/collections/vec1.rs"
 mode = "test"
 hint = """
 In Rust, there are two ways to define a Vector.
@@ -424,7 +424,7 @@ of the Rust book to learn more.
 
 [[exercises]]
 name = "vec2"
-path = "exercises/collections/vec2.rs"
+path = "homeworks/homework2/collections/vec2.rs"
 mode = "test"
 hint = """
 Hint 1: `i` is each element from the Vec as they are being iterated.
@@ -434,7 +434,7 @@ Hint 2: Check the suggestion from the compiler error ;)
 
 [[exercises]]
 name = "hashmap1"
-path = "exercises/collections/hashmap1.rs"
+path = "homeworks/homework2/collections/hashmap1.rs"
 mode = "test"
 hint = """
 Hint 1: Take a look at the return type of the function to figure out
@@ -445,7 +445,7 @@ Hint 2: Number of fruits should be at least 5. And you have to put
 
 [[exercises]]
 name = "hashmap2"
-path = "exercises/collections/hashmap2.rs"
+path = "homeworks/homework2/collections/hashmap2.rs"
 mode = "test"
 hint = """
 Use the `entry()` and `or_insert()` methods of `HashMap` to achieve this.
@@ -583,7 +583,7 @@ https://doc.rust-lang.org/std/result/enum.Result.html#method.map_err"""
 
 [[exercises]]
 name = "generics1"
-path = "exercises/generics/generics1.rs"
+path = "homeworks/homework2/generics/generics1.rs"
 mode = "compile"
 hint = """
 Vectors in rust make use of generics to create dynamically sized arrays of any type.
@@ -591,7 +591,7 @@ You need to tell the compiler what type we are pushing onto this vector."""
 
 [[exercises]]
 name = "generics2"
-path = "exercises/generics/generics2.rs"
+path = "homeworks/homework2/generics/generics2.rs"
 mode = "test"
 hint = """
 Currently we are wrapping only values of type 'u32'.
@@ -602,7 +602,7 @@ If you are still stuck https://doc.rust-lang.org/stable/book/ch10-01-syntax.html
 
 [[exercises]]
 name = "generics3"
-path = "exercises/generics/generics3.rs"
+path = "homeworks/homework2/generics/generics3.rs"
 mode = "test"
 hint = """
 To find the best solution to this challenge you're going to need to think back to your
@@ -617,7 +617,7 @@ of the struct slightly too...you can do it!
 
 [[exercises]]
 name = "option1"
-path = "exercises/option/option1.rs"
+path = "homeworks/homework2/option/option1.rs"
 mode = "compile"
 hint = """
 Hint 1: Check out some functions of Option:
@@ -633,7 +633,7 @@ Hint 2: There are no sensible defaults for the value of an Array; the values nee
 
 [[exercises]]
 name = "option2"
-path = "exercises/option/option2.rs"
+path = "homeworks/homework2/option/option2.rs"
 mode = "compile"
 hint = """
 check out:
@@ -647,7 +647,7 @@ Also see Option::flatten
 
 [[exercises]]
 name = "option3"
-path = "exercises/option/option3.rs"
+path = "homeworks/homework2/option/option3.rs"
 mode = "compile"
 hint = """
 The compiler says a partial move happened in the `match`
@@ -882,7 +882,7 @@ what you've learned :)"""
 
 [[exercises]]
 name = "macros1"
-path = "exercises/macros/macros1.rs"
+path = "homeworks/homework2/macros/macros1.rs"
 mode = "compile"
 hint = """
 When you call a macro, you need to add something special compared to a
@@ -891,7 +891,7 @@ regular function call. If you're stuck, take a look at what's inside
 
 [[exercises]]
 name = "macros2"
-path = "exercises/macros/macros2.rs"
+path = "homeworks/homework2/macros/macros2.rs"
 mode = "compile"
 hint = """
 Macros don't quite play by the same rules as the rest of Rust, in terms of
@@ -902,7 +902,7 @@ Unlike other things in Rust, the order of "where you define a macro" versus
 
 [[exercises]]
 name = "macros3"
-path = "exercises/macros/macros3.rs"
+path = "homeworks/homework2/macros/macros3.rs"
 mode = "compile"
 hint = """
 In order to use a macro outside of its module, you need to do something
@@ -913,7 +913,7 @@ exported macros, if you've seen any of those around."""
 
 [[exercises]]
 name = "macros4"
-path = "exercises/macros/macros4.rs"
+path = "homeworks/homework2/macros/macros4.rs"
 mode = "compile"
 hint = """
 You only need to add a single character to make this compile.

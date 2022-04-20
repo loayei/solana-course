@@ -23,6 +23,9 @@ fn compile_and_run(exercise: &Exercise) -> Result<(), ()> {
     progress_bar.set_message(format!("Compiling {}...", exercise).as_str());
     progress_bar.enable_steady_tick(100);
 
+
+    println!("Compiling: {:?}", exercise.name);
+
     let compilation_result = exercise.compile();
     let compilation = match compilation_result {
         Ok(compilation) => compilation,
