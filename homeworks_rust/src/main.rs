@@ -307,10 +307,6 @@ fn homework(exercises: &[Exercise], verbose: bool, homework_number: String) -> n
                             .chain(exercises_filtered.iter().filter(|e| !e.looks_done() && !filepath.ends_with(&e.path)));
                         clear_screen();
 
-                        for ex in pending_exercises.clone() {
-                            println!("ex X: {:?}",ex.name);
-                        }
-
                         match verify(pending_exercises, verbose) {
                             Ok(_) => return Ok(WatchStatus::Finished),
                             Err(exercise) => {
