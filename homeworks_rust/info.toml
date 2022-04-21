@@ -173,7 +173,7 @@ hint = "No hints this time ;)"
 
 [[exercises]]
 name = "move_semantics1"
-path = "exercises/move_semantics/move_semantics1.rs"
+path = "homeworks/homework3/move_semantics/move_semantics1.rs"
 mode = "compile"
 hint = """
 So you've got the "cannot borrow immutable local variable `vec1` as mutable" error on line 13,
@@ -182,7 +182,7 @@ where the error is."""
 
 [[exercises]]
 name = "move_semantics2"
-path = "exercises/move_semantics/move_semantics2.rs"
+path = "homeworks/homework3/move_semantics/move_semantics2.rs"
 mode = "compile"
 hint = """
 So `vec0` is being *moved* into the function `fill_vec` when we call it on
@@ -202,7 +202,7 @@ all!
 
 [[exercises]]
 name = "move_semantics3"
-path = "exercises/move_semantics/move_semantics3.rs"
+path = "homeworks/homework3/move_semantics/move_semantics3.rs"
 mode = "compile"
 hint = """
 The difference between this one and the previous ones is that the first line
@@ -212,7 +212,7 @@ an existing binding to be a mutable binding instead of an immutable one :)"""
 
 [[exercises]]
 name = "move_semantics4"
-path = "exercises/move_semantics/move_semantics4.rs"
+path = "homeworks/homework3/move_semantics/move_semantics4.rs"
 mode = "compile"
 hint = """
 Stop reading whenever you feel like you have enough direction :) Or try
@@ -227,7 +227,7 @@ So the end goal is to:
 
 [[exercises]]
 name = "move_semantics5"
-path = "exercises/move_semantics/move_semantics5.rs"
+path = "homeworks/homework3/move_semantics/move_semantics5.rs"
 mode = "compile"
 hint = """
 Carefully reason about the range in which each mutable reference is in
@@ -239,7 +239,7 @@ https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html#mutable-ref
 
 [[exercises]]
 name = "move_semantics6"
-path = "exercises/move_semantics/move_semantics6.rs"
+path = "homeworks/homework3/move_semantics/move_semantics6.rs"
 mode = "compile"
 hint = """
 To find the answer, you can consult the book section "References and Borrowing":
@@ -487,7 +487,7 @@ hint = "No hints this time ;)"
 
 [[exercises]]
 name = "errors1"
-path = "exercises/error_handling/errors1.rs"
+path = "homeworks/homework3/error_handling/errors1.rs"
 mode = "test"
 hint = """
 `Ok` and `Err` are one of the variants of `Result`, so what the tests are saying
@@ -504,7 +504,7 @@ To make this change, you'll need to:
 
 [[exercises]]
 name = "errors2"
-path = "exercises/error_handling/errors2.rs"
+path = "homeworks/homework3/error_handling/errors2.rs"
 mode = "test"
 hint = """
 One way to handle this is using a `match` statement on
@@ -517,14 +517,14 @@ and give it a try!"""
 
 [[exercises]]
 name = "errors3"
-path = "exercises/error_handling/errors3.rs"
+path = "homeworks/homework3/error_handling/errors3.rs"
 mode = "compile"
 hint = """
 If other functions can return a `Result`, why shouldn't `main`?"""
 
 [[exercises]]
 name = "errors4"
-path = "exercises/error_handling/errors4.rs"
+path = "homeworks/homework3/error_handling/errors4.rs"
 mode = "test"
 hint = """
 `PositiveNonzeroInteger::new` is always creating a new instance and returning an `Ok` result.
@@ -533,7 +533,7 @@ returning an `Ok` result if those checks determine that everything is... okay :)
 
 [[exercises]]
 name = "errors5"
-path = "exercises/error_handling/errors5.rs"
+path = "homeworks/homework3/error_handling/errors5.rs"
 mode = "compile"
 hint = """
 Hint: There are two different possible `Result` types produced within
@@ -561,7 +561,7 @@ https://doc.rust-lang.org/stable/rust-by-example/error/multiple_error_types/reen
 
 [[exercises]]
 name = "errors6"
-path = "exercises/error_handling/errors6.rs"
+path = "homeworks/homework3/error_handling/errors6.rs"
 mode = "test"
 hint = """
 This exercise uses a completed version of `PositiveNonzeroInteger` from
@@ -659,7 +659,7 @@ read: https://doc.rust-lang.org/std/keyword.ref.html"""
 
 [[exercises]]
 name = "traits1"
-path = "exercises/traits/traits1.rs"
+path = "homeworks/homework3/traits/traits1.rs"
 mode = "test"
 hint = """
 A discussion about Traits in Rust can be found at:
@@ -668,7 +668,7 @@ https://doc.rust-lang.org/book/ch10-02-traits.html
 
 [[exercises]]
 name = "traits2"
-path = "exercises/traits/traits2.rs"
+path = "homeworks/homework3/traits/traits2.rs"
 mode = "test"
 hint = """
 Notice how the trait takes ownership of 'self',and returns `Self'.
@@ -681,7 +681,7 @@ the documentation at: https://doc.rust-lang.org/std/vec/struct.Vec.html"""
 
 [[exercises]]
 name = "tests1"
-path = "exercises/tests/tests1.rs"
+path = "homeworks/homework3/tests/tests1.rs"
 mode = "test"
 hint = """
 You don't even need to write any code to test -- you can just test values and run that, even
@@ -692,7 +692,7 @@ to `assert!` and see which ones compile, which ones pass, and which ones fail :)
 
 [[exercises]]
 name = "tests2"
-path = "exercises/tests/tests2.rs"
+path = "homeworks/homework3/tests/tests2.rs"
 mode = "test"
 hint = """
 Like the previous exercise, you don't need to write any code to get this test to compile and
@@ -702,7 +702,7 @@ that are of different types! Try switching which argument comes first and which 
 
 [[exercises]]
 name = "tests3"
-path = "exercises/tests/tests3.rs"
+path = "homeworks/homework3/tests/tests3.rs"
 mode = "test"
 hint = """
 You can call a function right where you're passing arguments to `assert!` -- so you could do
@@ -932,7 +932,7 @@ hint = "No hints this time ;)"
 
 [[exercises]]
 name = "clippy1"
-path = "exercises/clippy/clippy1.rs"
+path = "homeworks/homework3/clippy/clippy1.rs"
 mode = "clippy"
 hint = """
 Rust stores the highest precision version of any long or inifinite precision
@@ -947,7 +947,7 @@ appropriate replacement constant from std::f32::consts..."""
 
 [[exercises]]
 name = "clippy2"
-path = "exercises/clippy/clippy2.rs"
+path = "homeworks/homework3/clippy/clippy2.rs"
 mode = "clippy"
 hint = """
 `for` loops over Option values are more clearly expressed as an `if let`"""
@@ -956,7 +956,7 @@ hint = """
 
 [[exercises]]
 name = "using_as"
-path = "exercises/conversions/using_as.rs"
+path = "homeworks/homework3/conversions/using_as.rs"
 mode = "test"
 hint = """
 Use the `as` operator to cast one of the operands in the last line of the
@@ -964,14 +964,14 @@ Use the `as` operator to cast one of the operands in the last line of the
 
 [[exercises]]
 name = "from_into"
-path = "exercises/conversions/from_into.rs"
+path = "homeworks/homework3/conversions/from_into.rs"
 mode = "test"
 hint = """
 Follow the steps provided right before the `From` implementation"""
 
 [[exercises]]
 name = "from_str"
-path = "exercises/conversions/from_str.rs"
+path = "homeworks/homework3/conversions/from_str.rs"
 mode = "test"
 hint = """
 The implementation of FromStr should return an Ok with a Person object,
@@ -992,7 +992,7 @@ https://doc.rust-lang.org/stable/rust-by-example/error/multiple_error_types/reen
 
 [[exercises]]
 name = "try_from_into"
-path = "exercises/conversions/try_from_into.rs"
+path = "homeworks/homework3/conversions/try_from_into.rs"
 mode = "test"
 hint = """
 Follow the steps provided right before the `TryFrom` implementation.
@@ -1014,7 +1014,7 @@ Challenge: Can you make the `TryFrom` implementations generic over many integer 
 
 [[exercises]]
 name = "as_ref_mut"
-path = "exercises/conversions/as_ref_mut.rs"
+path = "homeworks/homework3/conversions/as_ref_mut.rs"
 mode = "test"
 hint = """
 Add AsRef<str> as a trait bound to the functions."""
@@ -1023,7 +1023,7 @@ Add AsRef<str> as a trait bound to the functions."""
 
 [[exercises]]
 name = "advanced_errs1"
-path = "exercises/advanced_errors/advanced_errs1.rs"
+path = "homeworks/homework3/advanced_errors/advanced_errs1.rs"
 mode = "test"
 hint = """
 This exercise uses an updated version of the code in errors6. The parsing
@@ -1041,7 +1041,7 @@ different input type.
 
 [[exercises]]
 name = "advanced_errs2"
-path = "exercises/advanced_errors/advanced_errs2.rs"
+path = "homeworks/homework3/advanced_errors/advanced_errs2.rs"
 mode = "test"
 hint = """
 This exercise demonstrates a few traits that are useful for custom error
