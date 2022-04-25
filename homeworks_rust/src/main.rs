@@ -126,13 +126,11 @@ fn main() {
 
         Subcommands::Run(subargs) => {
             let exercise = find_exercise(&subargs.name, &exercises);
-
             run(exercise, verbose).unwrap_or_else(|_| std::process::exit(1));
         }
 
         Subcommands::Hint(subargs) => {
             let exercise = find_exercise(&subargs.name, &exercises);
-
             println!("{}", exercise.hint);
         }
 
@@ -223,8 +221,8 @@ fn homework(exercises: &[Exercise], verbose: bool, homework_number: String) -> n
         println!("\x1Bc");
     }
 
-    // println!("exercises: {:?}", exercises);
-    // println!("exercise[0]: {:?}", exercises.len());    
+    println!("exercises: {:?}", exercises);
+    println!("exercise[0]: {:?}", exercises.len());    
 
     let (tx, rx) = channel();
     let should_quit = Arc::new(AtomicBool::new(false));
@@ -286,13 +284,15 @@ fn homework(exercises: &[Exercise], verbose: bool, homework_number: String) -> n
     // Err(e) => {
     //     println!("Error: Could not watch your progress. Error message was {:?}.", e);
 
+    println!("Verification loop");
+
     // pass here for looping till done
-    let failed_exercise_hint = match verify(exercises.iter(), verbose) {
+    let failed_exercise_hint = match verify(exercises_filtered.iter(), verbose) {
         Ok(_) => return Ok(WatchStatus::Finished),
         Err(exercise) => Arc::new(Mutex::new(Some(to_owned_hint(exercise)))),
     };    
 
-    // println!("Spawning homeworkd watch shell");
+    println!("Spawning homeworkd watch shell");
     spawn_watch_shell(&failed_exercise_hint, Arc::clone(&should_quit));
     loop {
         match rx.recv_timeout(Duration::from_secs(1)) {
@@ -306,6 +306,7 @@ fn homework(exercises: &[Exercise], verbose: bool, homework_number: String) -> n
                             // .filter(|e| filepath.ends_with(&e.path))
                             .chain(exercises_filtered.iter().filter(|e| !e.looks_done() && !filepath.ends_with(&e.path)));
                         clear_screen();
+
                         match verify(pending_exercises, verbose) {
                             Ok(_) => return Ok(WatchStatus::Finished),
                             Err(exercise) => {

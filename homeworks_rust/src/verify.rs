@@ -12,9 +12,6 @@ pub fn verify<'a>(
     start_at: impl IntoIterator<Item = &'a Exercise>,
     verbose: bool,
 ) -> Result<(), &'a Exercise> {
-
-
-    println!("\n\nfn verify\n\n"); // TODO: remove in final clean up
     
     // loops over iterator of exercises
     for exercise in start_at {
@@ -61,6 +58,10 @@ fn compile_and_run_interactively(exercise: &Exercise) -> Result<bool, ()> {
     progress_bar.enable_steady_tick(100);
 
     let compilation = compile(exercise, &progress_bar)?;
+
+    // println!("exrcise list: {:?}",)
+
+    println!("Compiling: {:?}", exercise.name);
 
     progress_bar.set_message(format!("Running {}...", exercise).as_str());
     let result = compilation.run();
