@@ -1,15 +1,14 @@
-use borsh::{BorshDeserialize, BorshSerialize};
 use solana_program::{msg, program_error::ProgramError};
 use std::str::from_utf8;
 
 #[derive(Debug)]
 pub enum Instruction {
-    PDA_create {
+    PdaCreate {
         seed: String,
         bump: u8,
         account_size: u8,
     },
-    PDA_write {
+    PdaWrite {
         seed: String,
     },
 }
@@ -57,7 +56,7 @@ impl Instruction {
 
                 msg!("[instruction] extracted account size: {:?}", account_size);
 
-                Ok(Self::PDA_create {
+                Ok(Self::PdaCreate {
                     seed,
                     bump,
                     account_size,
@@ -72,7 +71,7 @@ impl Instruction {
                     .unwrap()
                     .to_string();
 
-                Ok(Self::PDA_write { seed }) // needs seed
+                Ok(Self::PdaWrite { seed })
             }
             _ => {
                 return Err(ProgramError::BorshIoError(

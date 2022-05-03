@@ -13,9 +13,7 @@ import path from "path";
 
 import {
   getPayer,
-  createKeypairFromFile,
   establishConnection,
-  establishPayerFunds,
   checkAccountDeployed,
   checkBinaryExists,
   getUserInput,
@@ -93,10 +91,9 @@ export async function callFuncs(
   const instruction = new TransactionInstruction({
     keys: [],
     programId,
-    data: Buffer.from([dest_func]), // All instructions are hellos
+    data: Buffer.from([dest_func]),
   });
 
-  // uses global variables
   await sendAndConfirmTransaction(
     connection,
     new Transaction().add(instruction),

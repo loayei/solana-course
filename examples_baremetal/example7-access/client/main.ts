@@ -17,18 +17,13 @@ import fs from "fs";
 
 import {
   getPayer,
-  createKeypairFromFile,
   establishConnection,
-  establishPayerFunds,
-  checkAccountDeployed,
   checkBinaryExists,
   getBalance,
   establishEnoughSol,
   checkProgram,
   getUserInput,
-  loadKeypair,
   loadKeypairsBatch,
-  atLeastSol,
   topUpAccounts,
 } from "../../../utils/utils";
 
