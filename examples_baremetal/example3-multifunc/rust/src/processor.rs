@@ -1,41 +1,29 @@
-use solana_program::{
-    account_info::{next_account_info, AccountInfo},
-    entrypoint::ProgramResult,
-    msg,
-    program::{invoke, invoke_signed},
-    program_error::ProgramError,
-    program_pack::{IsInitialized, Pack},
-    pubkey::Pubkey,    
-};
+use solana_program::{account_info::AccountInfo, entrypoint::ProgramResult, msg, pubkey::Pubkey};
 
-
-use crate::functions::{function_A, function_B};
+use crate::functions::{function_a, function_b};
 use crate::instruction::Instruction;
 
 pub struct Processor;
 impl Processor {
-	pub fn process_program_call(
-		program_id: &Pubkey,
-		_accounts: &[AccountInfo],
-		instruction_data: &[u8],
-	) -> ProgramResult {
+    pub fn process_program_call(
+        _program_id: &Pubkey,
+        _accounts: &[AccountInfo],
+        instruction_data: &[u8],
+    ) -> ProgramResult {
+        // turns bytecode into instrucion which contains function to invoke
+        let instruction = Instruction::unpack(instruction_data)?;
 
-		// turns bytecode into instrucion which contains function to invoke
-		let instruction = Instruction::unpack(instruction_data)?;
+        msg!("[processor] Received: {:?}", instruction);
 
-		// split above top remove ?
+        match instruction {
+            Instruction::FunctionA => {
+                function_a();
+            }
+            Instruction::FunctionB => {
+                function_b();
+            }
+        }
 
-		msg!("[processor] Received: {:?}",instruction);
-
-		match instruction {
-			Instruction::FunctionA => {
-				function_A();
-			}
-			Instruction::FunctionB => {
-				function_B();
-			}
-		}
-		
-		Ok(())
-	}
+        Ok(())
+    }
 }

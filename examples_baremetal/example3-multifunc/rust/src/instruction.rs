@@ -16,7 +16,7 @@ impl Instruction {
         msg!("[instruction] Splits something");
 
         // process option
-        let (function_flag, rest) = split.ok_or({
+        let (function_flag, _rest) = split.ok_or({
             msg!("Message before the error");
             ProgramError::BorshIoError("Invalid parameters passed".to_string())
         })?;

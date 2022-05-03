@@ -13,12 +13,9 @@ import path from "path";
 
 import {
   getPayer,
-  createKeypairFromFile,
   establishConnection,
-  establishPayerFunds,
   checkAccountDeployed,
   checkBinaryExists,
-  getUserInput,
   establishEnoughSol,
   getBalance,
 } from "../../../utils/utils";
@@ -53,7 +50,6 @@ async function main() {
 
   // Check if deployed
   if (await checkAccountDeployed(connection, programID)) {
-    // Get log from Solana program
     await invoke(programID, connection, payer);
 
     // Print fees used up

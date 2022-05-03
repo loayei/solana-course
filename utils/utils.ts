@@ -167,6 +167,9 @@ export async function getRpcUrl(): Promise<string> {
   }
 }
 
+/**
+ * Checks if provided account is executable and returns the public key
+ */
 export async function checkBinaryExists(
   PROGRAM_KEYPAIR_PATH: string
 ): Promise<PublicKey> {

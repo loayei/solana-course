@@ -15,16 +15,13 @@ import * as borsh from "borsh";
 
 import {
   getPayer,
-  createKeypairFromFile,
   establishConnection,
-  establishPayerFunds,
   checkAccountDeployed,
   checkBinaryExists,
   getBalance,
   establishEnoughSol,
   getUserInput,
 } from "../../../utils/utils";
-import { ExitStatus } from "typescript";
 
 // directory with binary and keypair
 const PROGRAM_PATH = path.resolve(__dirname, "../../target/deploy/");
@@ -127,8 +124,6 @@ export async function writePDA(
     Buffer.from(word), // bytes of user specified word
   ]);
 
-  // u8 => 0->255
-
   // assembly of instruction
   const transaction = new TransactionInstruction({
     programId: programId,
@@ -160,7 +155,6 @@ export async function createPDA(
 
   // Get user input for the seed
   const seed = await getUserInput("\nPick seed for account generation.");
-  // maybe a file called constraints that wraps around?
   const bytes = parseInt(await getUserInput("\nPick account size in bytes."));
 
   let seed_buffer = Buffer.from(seed);
@@ -198,8 +192,6 @@ export async function createPDA(
     programId,
     data: instruction_set,
   });
-
-  // uses global variables
   await sendAndConfirmTransaction(
     connection,
     new Transaction().add(instruction),

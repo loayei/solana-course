@@ -1,16 +1,13 @@
+use borsh::{BorshDeserialize, BorshSerialize};
 use solana_program::{
     account_info::{next_account_info, AccountInfo},
     borsh::try_from_slice_unchecked,
-    clock::Epoch,
     msg,
     program::invoke_signed,
     program_error::ProgramError,
     pubkey::Pubkey,
     rent::Rent,
 };
-// use crate::state;
-use borsh::{BorshDeserialize, BorshSerialize};
-use std::mem;
 
 /// Define the type of state stored in accounts
 #[derive(BorshSerialize, BorshDeserialize, Debug, Clone)]
@@ -70,7 +67,6 @@ pub fn create_pda(
     Ok(())
 }
 
-// Finds valid account off-chain and creates it on-chain
 pub fn write_pda(
     program_id: &Pubkey,
     seed: String,
@@ -104,7 +100,7 @@ pub fn write_pda(
 
     word_account.word = seed;
 
-    // serialise and slap it back into the account
+    // serialise and update the account
     word_account.serialize(&mut &mut account.data.borrow_mut()[..])?;
 
     msg!("Serialisation to PDA successful");

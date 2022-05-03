@@ -13,9 +13,7 @@ import path from "path";
 
 import {
   getPayer,
-  createKeypairFromFile,
   establishConnection,
-  establishPayerFunds,
   checkAccountDeployed,
   checkBinaryExists,
   getUserInput,
@@ -77,15 +75,14 @@ export async function getPrimes(
   connection: Connection,
   payer: Keypair
 ): Promise<void> {
-  // Get prime limti
+  // Get prime limit
   const prime_limt = parseInt(
     await getUserInput("Chose n-th prime up to 90 (I'm serious!)")
   );
-  // Assemble call to the helloworld
   const instruction = new TransactionInstruction({
-    keys: [], // Keys unnecessary to simply log output
+    keys: [],
     programId,
-    data: Buffer.from([prime_limt]), // Instruction data unnecessary to simply log output
+    data: Buffer.from([prime_limt]), // Send n-th prime limit
   });
 
   await sendAndConfirmTransaction(
