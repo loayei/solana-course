@@ -7,3 +7,4 @@
 .so
 test-ledger/
 .DS_Store
+package-lock.json
