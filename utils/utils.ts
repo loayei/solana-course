@@ -37,7 +37,7 @@ export async function getBalance(
 export async function feesEstimate(connection: Connection): Promise<number> {
   const { feeCalculator } = await connection.getRecentBlockhash();
 
-  let fees = feeCalculator.lamportsPerSignature * 100; // wag
+  let fees = feeCalculator.lamportsPerSignature * 100;
 
   return fees;
 }
@@ -50,19 +50,6 @@ export async function topUp(
   const sig = await connection.requestAirdrop(payer.publicKey, lamports);
   await connection.confirmTransaction(sig);
   lamports = await connection.getBalance(payer.publicKey);
-}
-
-export async function establishPayerFunds(
-  connection: Connection,
-  payer: Keypair | undefined
-): Promise<Keypair> {
-  if (!payer) {
-    const { feeCalculator } = await connection.getRecentBlockhash();
-
-    // set-up payer
-    payer = await getPayer();
-  }
-  return payer;
 }
 
 export async function atLeastSol(
@@ -106,30 +93,6 @@ export async function establishEnoughSol(
   if (lamports < fees) {
     await topUp(connection, payer, fees - lamports);
   }
-}
-
-export async function createAccountWithSeedHelper(
-  connection: Connection,
-  payer: Keypair,
-  size: number,
-  from: PublicKey,
-  base: PublicKey,
-  lamports: number,
-  seed: string,
-  owner: PublicKey
-) {
-  // const transaction = new Transaction().add(
-  // 	SystemProgram.createAccountWithSeed({
-  // 		fromPubkey: payer.publicKey,
-  // 		basePubkey: payer.publicKey,
-  // 		seed: seed,
-  // 		newAccountPubkey: greetedPubkey,
-  // 		lamports,
-  // 		space: GREETING_SIZE + 11,
-  // 		programId,
-  // 	})
-  // );
-  // await sendAndConfirmTransaction(connection, transaction, [payer]);
 }
 
 /**
@@ -262,6 +225,9 @@ export async function createKeypairFromFile(
   return Keypair.fromSecretKey(secretKey);
 }
 
+/**
+ * Function to get user's input from the CLI
+ */
 export async function getUserInput(
   text: string = "Input text"
 ): Promise<string> {
