@@ -36,7 +36,7 @@ const PROGRAM_SO_PATH = path.join(PROGRAM_PATH, "access.so");
 // Path to the keypair of the deployed program (This file is created when running `solana program deploy)
 const PROGRAM_KEYPAIR_PATH = path.join(PROGRAM_PATH, "access-keypair.json");
 
-const accs_loc: string = "./examples_/example7-access/client/accs/";
+const accs_loc: string = "./examples_baremetal/example7-access/client/accs/";
 
 async function main() {
   console.log("Let's increment an account!");
@@ -137,7 +137,7 @@ export async function logGeneratedAccounts() {
 }
 
 export async function clearLocalAccounts() {
-  let account_dets_loc = "./examples_/example6-access/client/accs";
+  let account_dets_loc = "./examples_baremetal/example7-access/client/accs";
   fsExtra.emptyDirSync(account_dets_loc);
 }
 
@@ -160,7 +160,7 @@ export async function saveAccFile(
 }
 
 export async function readAccFile(
-  loc: string = "./examples_/example6-access/client/accs/myjsonfile2.json"
+  loc: string = "./examples_baremetal/example6-access/client/accs/myjsonfile2.json"
 ): Promise<any> {
   // console.log("\n\nreasfding json file\n\n");
   let stringified_json = await fs.readFileSync(loc, "utf8");
@@ -248,7 +248,7 @@ export async function getAccount(
   payer: Keypair,
   account_purpose: string
 ): Promise<Keypair> {
-  let keys = await loadKeypairsBatch("./examples_/utils/keypair");
+  let keys = await loadKeypairsBatch("./utils/keypair");
 
   keys.push(payer);
 
