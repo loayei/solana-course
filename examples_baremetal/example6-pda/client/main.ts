@@ -88,13 +88,12 @@ export async function getAllAccounts(
   programId: PublicKey,
   connection: Connection
 ) {
-  console.log(`${programId} owns:\n`);
+  console.log(`\n${programId} owns:\n`);
   const programAccounts = await connection.getProgramAccounts(programId);
 
-  console.log("programAccounts: ", programAccounts);
-  for (let p in programAccounts) {
-    console.log(p);
-  }
+  for (let i = 0; i < programAccounts.length; i++){
+    console.log(programAccounts[i].pubkey.toString());
+  }  
 }
 
 // option to either call or write
