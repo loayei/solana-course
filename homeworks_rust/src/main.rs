@@ -236,19 +236,12 @@ fn homework(exercises: &[Exercise], verbose: bool, homework_number: String) -> n
 
     let mut homework_path: String = "./homeworks/homework".to_owned();        
     homework_path.push_str(&homework_number);
-    // println!("homeworkX: {}", homework_path);
-
+    
     let to_owned_hint = |t: &Exercise| t.hint.to_owned();
-
-    // total exrcises
-    // println!("Total exercises loaded from info.toml: {:?}",exercises.len());
 
     // Check if directory exists
     let b = Path::new(&homework_path).is_dir();   //.is_file();
-    // println!("File found: {}", b);
-
-    // TODO: handle missing homework directory
-
+    
     // Filter against what's in the dirctory for number 1
     let paths = fs::read_dir(homework_path).expect("Can't find homework. Have you run the wrong homework number?");
 
@@ -260,31 +253,33 @@ fn homework(exercises: &[Exercise], verbose: bool, homework_number: String) -> n
         let res: Vec<String> = strr.split("/").map(|s| s.to_string()).collect();     
         exercise_names.push(res.last().unwrap().clone());
     }
-
     
-    // println!("Exercises in this homework set: {:?}", exercise_names.len());
-    // println!("Exercises: {:?}", exercise_names);
-
     let mut exercises_filtered: Vec<exercise::Exercise> = Vec::new();
 
-    // filter out from the exercises list
+    println!("\n");
+
+    // filter out from the exercises list.
+    // Include based on matching homework subdirectories
     for exercise in exercises {            
         
-        // println!("exercise.name: {:?}",exercise.name);
-        let stripped: String  = exercise.name.clone()[..exercise.name.len() - 1].to_string();
+        let path_string: String = exercise.path.clone().into_os_string().into_string().unwrap();        
+        let path_elements: Vec<&str> = path_string.split('/').collect();       
 
-        // println!("Stripped: {:?}",stripped);
-        if exercise_names.contains(&stripped) {
-            exercises_filtered.push(exercise.clone());
+        if path_elements.len() > 3{
+
+            let exercise_dir: String = String::from(path_elements.clone()[2]);           
+
+            // retrieve 3rd variable from teh path and check for match
+            if exercise_names.contains(&exercise_dir) {
+                exercises_filtered.push(exercise.clone());
+            }
         }
     }    
-
-    // TODO: need to modify path in all the exercises to be relative
-
-    // Err(e) => {
-    //     println!("Error: Could not watch your progress. Error message was {:?}.", e);
-
-    println!("Verification loop");
+    
+    // println!("\nExercises in this homework set:");
+    // for exercise in exercises_filtered.clone() {           
+    //     println!("exercises_filtered: {:?}",exercise.name);
+    // }    
 
     // pass here for looping till done
     let failed_exercise_hint = match verify(exercises_filtered.iter(), verbose) {

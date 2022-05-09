@@ -165,7 +165,7 @@ conditions checking different input values."""
 
 [[exercises]]
 name = "quiz1"
-path = "homeworks/homework1/quiz1.rs"
+path = "homeworks/homework4/quiz/quiz1.rs"
 mode = "test"
 hint = "No hints this time ;)"
 
@@ -479,7 +479,7 @@ string slice instead of a `String`, wouldn't it?? There is a way to add one char
 
 [[exercises]]
 name = "quiz2"
-path = "exercises/quiz2.rs"
+path = "homeworks/homework4/quiz/quiz2.rs"
 mode = "compile"
 hint = "No hints this time ;)"
 
@@ -713,7 +713,7 @@ can negate the result of what you're doing using `!`, like `assert!(!having_fun(
 
 [[exercises]]
 name = "quiz3"
-path = "exercises/quiz3.rs"
+path = "homeworks/homework4/quiz/quiz3.rs"
 mode = "test"
 hint = "No hints this time ;)"
 
@@ -924,7 +924,7 @@ The way macros are written, it wants to see something between each
 
 [[exercises]]
 name = "quiz4"
-path = "exercises/quiz4.rs"
+path = "homeworks/homework4/quiz/quiz4.rs"
 mode = "test"
 hint = "No hints this time ;)"
 
@@ -1023,7 +1023,7 @@ Add AsRef<str> as a trait bound to the functions."""
 
 [[exercises]]
 name = "advanced_errs1"
-path = "homeworks/homework3/advanced_errors/advanced_errs1.rs"
+path = "homeworks/homework3/advanced_errs/advanced_errs1.rs"
 mode = "test"
 hint = """
 This exercise uses an updated version of the code in errors6. The parsing
@@ -1041,7 +1041,7 @@ different input type.
 
 [[exercises]]
 name = "advanced_errs2"
-path = "homeworks/homework3/advanced_errors/advanced_errs2.rs"
+path = "homeworks/homework3/advanced_errs/advanced_errs2.rs"
 mode = "test"
 hint = """
 This exercise demonstrates a few traits that are useful for custom error
