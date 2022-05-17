@@ -525,6 +525,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "example3"
+version = "0.1.0"
+dependencies = [
+ "anchor-lang",
+]
+
+[[package]]
 name = "feature-probe"
 version = "0.1.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
